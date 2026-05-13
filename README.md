@@ -1,6 +1,20 @@
-# Telecom-Churn-Data-Warehouse
-Welcome to the Telecom Customer Churn Data Warehouse repository!
-This project demonstrates a comprehensive data warehousing solution built from scratch — from raw data ingestion to a business-ready star schema designed for analytics and reporting. Built as a portfolio project, it highlights industry best practices in data engineering using real telecom customer data.
+# Telecom Customer Churn Data Warehouse
+
+An end-to-end data warehouse built with SQL Server using the Medallion Architecture (Bronze/Silver/Gold) on telecom customer churn data.
+
+---
+
+## Data Architecture
+
+> Add DrawIO architecture diagram here
+
+- **Bronze Layer:** Raw data loaded as-is from CSV files into SQL Server using BULK INSERT.
+- **Silver Layer:** Data cleansing and standardization — SeniorCitizen converted from 0/1 to Yes/No, TotalCharges blanks handled and   cast to FLOAT, duplicates removed using ROW_NUMBER().
+- **Gold Layer:** Business-ready star schema with fact and dimension views optimized for analytics.
+
+---
+
+## Data Model
 
 ## Data Architecture
 The project follows the Medallion Architecture with Bronze, Silver, and Gold layers:
@@ -12,7 +26,51 @@ The project follows the Medallion Architecture with Bronze, Silver, and Gold lay
 # Project Overview
 This project involves:
 
-Data Architecture: Designing a modern data warehouse using Medallion Architecture (Bronze, Silver, Gold).
-ETL Pipelines: Extracting, transforming, and loading data from two source systems into the warehouse.
-Data Modeling: Developing fact and dimension tables optimized for analytical queries.
-Analytics & Reporting: Building a star schema that enables business analysts to answer key churn questions.
+1. **Data Architecture**: Designing a modern data warehouse using Medallion Architecture (Bronze, Silver, Gold).
+2. **ETL Pipelines**: Extracting, transforming, and loading data from two source systems into the warehouse.
+3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
+4. **Analytics & Reporting**: Building a star schema that enables business analysts to answer key churn questions.
+
+
+## How to Run
+
+### Prerequisites
+- SQL Server 2022
+- SSMS
+- CSV files placed at `C:\TelecomChurn\Datasets\`
+
+### Steps
+
+**1. Create database and schemas**
+```sql
+CREATE DATABASE TelecomChurn;
+USE TelecomChurn;
+CREATE SCHEMA bronze;
+CREATE SCHEMA silver;
+CREATE SCHEMA gold;
+```
+
+**2. Run scripts in this order:**
+scripts/bronze/ddl_bronze.sql
+scripts/bronze/proc_load_bronze.sql  → EXEC bronze.load_bronze;
+scripts/silver/ddl_silver.sql
+scripts/silver/proc_load_silver.sql  → EXEC silver.load_silver;
+scripts/gold/ddl_gold.sql
+
+---
+
+## Repository Structure
+telecom-churn-data-warehouse/
+├── datasets/
+│   ├── source_crm_customers.csv
+│   └── source_erp_services.csv
+├── scripts/
+│   ├── bronze/
+│   │   ├── ddl_bronze.sql
+│   │   └── proc_load_bronze.sql
+│   ├── silver/
+│   │   ├── ddl_silver.sql
+│   │   └── proc_load_silver.sql
+│   └── gold/
+│       └── ddl_gold.sql
+└── README.md
