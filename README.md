@@ -51,15 +51,17 @@ CREATE SCHEMA gold;
 ```
 
 **2. Run scripts in this order:**
+```
 scripts/bronze/ddl_bronze.sql
 scripts/bronze/proc_load_bronze.sql  → EXEC bronze.load_bronze;
 scripts/silver/ddl_silver.sql
 scripts/silver/proc_load_silver.sql  → EXEC silver.load_silver;
 scripts/gold/ddl_gold.sql
-
+```
 ---
 
 ## Repository Structure
+```
 telecom-churn-data-warehouse/
 ├── datasets/
 │   ├── source_crm_customers.csv
@@ -74,3 +76,4 @@ telecom-churn-data-warehouse/
 │   └── gold/
 │       └── ddl_gold.sql
 └── README.md
+```
