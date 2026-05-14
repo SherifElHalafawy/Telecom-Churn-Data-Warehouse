@@ -4,16 +4,6 @@ An end-to-end data warehouse built with SQL Server using the Medallion Architect
 
 ---
 
-## Data Architecture
-
-> Add DrawIO architecture diagram here
-
-- **Bronze Layer:** Raw data loaded as-is from CSV files into SQL Server using BULK INSERT.
-- **Silver Layer:** Data cleansing and standardization — SeniorCitizen converted from 0/1 to Yes/No, TotalCharges blanks handled and   cast to FLOAT, duplicates removed using ROW_NUMBER().
-- **Gold Layer:** Business-ready star schema with fact and dimension views optimized for analytics.
-
----
-
 
 
 ## Data Architecture
@@ -76,4 +66,4 @@ telecom-churn-data-warehouse/
 │   └── gold/
 │       └── ddl_gold.sql
 └── README.md
-```
+
