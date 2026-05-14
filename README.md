@@ -18,7 +18,7 @@ An end-to-end data warehouse built with SQL Server using the Medallion Architect
 
 ## Data Architecture
 The project follows the Medallion Architecture with Bronze, Silver, and Gold layers:
-![Data](docs/Data_Architecture.png)
+Docs/Data_Architecture.drawio.png
 1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV files into SQL Server using BULK INSERT.
 2. **Silver Layer**: Includes data cleansing, standardization, and deduplication processes to prepare data for analysis.
 3. **Gold Layer**: Houses business-ready data modelled into a star schema optimized for reporting and analytics.
