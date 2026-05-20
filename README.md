@@ -68,4 +68,4 @@ telecom-churn-data-warehouse/
 └── README.md
 ```
 ## Dashboard
-![C:\TelecomChurn\Docs](PowerBI Dash.png)
+![Dashboard](Docs/PowerBI Dash.png)
