@@ -67,3 +67,5 @@ telecom-churn-data-warehouse/
 │       └── ddl_gold.sql
 └── README.md
 
+## Dashboard
+![Dashboard](PowerBI Dash.png)
