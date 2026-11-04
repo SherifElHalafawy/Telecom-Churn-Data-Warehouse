@@ -23,16 +23,21 @@ GO
 
 CREATE OR ALTER VIEW gold.dim_customers AS
 SELECT
-	ROW_NUMBER() OVER (ORDER BY customerID) AS customer_key,
-	customerID,
-	gender,
-	SeniorCitizen,
-	[Partner],
-	Dependents,
-	tenure
+    ROW_NUMBER() OVER (ORDER BY customerID) AS customer_key,
+    customerID,
+    gender,
+    SeniorCitizen,
+    [Partner],
+    Dependents,
+    tenure,
+    CASE
+        WHEN tenure <= 12 THEN '1. 0-12 months'
+        WHEN tenure <= 24 THEN '2. 13-24 months'
+        WHEN tenure <= 48 THEN '3. 25-48 months'
+        ELSE                   '4. 49+ months'
+    END AS tenure_group
 FROM silver.crm_cust_info
 GO
-
 -- =============================================================================
 -- Create Dimension: gold.dim_services
 -- =============================================================================
