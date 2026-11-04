@@ -182,7 +182,7 @@ scripts/silver/proc_load_silver.sql  → EXEC silver.load_silver;
 scripts/gold/ddl_gold.sql
 ```
 ---
-
+## Repository Structure
 ```
 Telecom-Churn-Data-Warehouse/
 ├── Datasets/
