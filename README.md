@@ -27,7 +27,7 @@ This project involves:
 
 ## Business Questions & Findings
  
-All findings come from SQL queries run on the Gold layer. The full queries are in [`Scripts/analysis/analysis_queries.sql`](Scripts/analysis/analysis_queries.sql).
+All findings come from SQL queries run on the Gold layer. The full queries are in [`Scripts/analysis/analysis_queries.sql`](Scripts/Analysis/analysis_queries.sql).
  
 ### Key numbers
  
